@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class ZEventTree
 {
-	public delegate void EndFunc();
-	EndFunc _endFunc;
+	System.Action _endFunc;
 	
 	ZEventNode _root;
 
@@ -27,7 +26,7 @@ public class ZEventTree
 
 	Dictionary<ZEventNode, bool> _dictOfEventNodes;
 	
-	public ZEventTree(EndFunc func=null)
+	public ZEventTree(System.Action func=null)
 	{
 		_root = new EmptyEventNode("root", false);
 		_isStarted = false;

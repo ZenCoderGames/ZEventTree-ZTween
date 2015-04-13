@@ -20,7 +20,10 @@ public class ZEventNode
 	}
 	
 	public static bool DEBUG = false;
-	
+
+	/// <summary>
+	/// Constructor
+	/// </summary>
 	public ZEventNode(string name, bool nodeIsBlocking)
 	{
 		_name = name;
