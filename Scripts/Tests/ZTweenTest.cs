@@ -4,7 +4,7 @@ public class ZTweenTest : MonoBehaviour {
     public EasingEquations.Ease easeType;
 
 	void Start () {
-        ZTweenVector3 zTween = new ZTweenVector3(transform.localScale, transform.localScale * 5, 1, easeType, 0, true);
+        ZTweenVector3 zTween = new ZTweenVector3(transform.localScale, transform.localScale * 5, 1, easeType, 0, false);
         zTween.OnUpdateFunc = (Vector3 val) => {
             transform.localScale = val;
         };
@@ -12,7 +12,9 @@ public class ZTweenTest : MonoBehaviour {
 			Debug.Log("OnComplete scale tween");
 		};
 
-		ZTweenVector3 zTween2 = new ZTweenVector3(transform.eulerAngles, transform.eulerAngles + Vector3.forward * 180, 1, easeType, 0, true);
+		ZTweenManager.Instance.AddTween(zTween);
+
+		/*ZTweenVector3 zTween2 = new ZTweenVector3(transform.eulerAngles, transform.eulerAngles + Vector3.forward * 180, 1, easeType, 0, true);
 		zTween2.OnUpdateFunc = (Vector3 val) => {
 			transform.rotation = Quaternion.Euler(val);
 		};
@@ -35,6 +37,6 @@ public class ZTweenTest : MonoBehaviour {
 		zEventTree.AddChildNode(zEventTree.Root, eventNodeRotate);
 		zEventTree.AddChildNode(zEventTree.Root, eventNodeScale);
 
-		ZEventManager.Instance.StartEventTree(zEventTree);
+		ZEventManager.Instance.StartEventTree(zEventTree);*/
 	}
 }
